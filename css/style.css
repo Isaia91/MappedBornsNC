@@ -1,4 +1,36 @@
 #map {
     height: 600px;
-    width: 100%;
+    width: auto;
+    border-radius:  10px;
+    margin-top: 10px;
+}
+
+#title{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#sideBar{
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 300px;
+    height: 600px;
+    float: left;
+    overflow-y: auto;
+    display: none;
+}
+#closeButton {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    border-radius: 20px;
+}
+
+#search>button{
+    border-radius: 4px;
+}
+#search>input{
+    border-radius: 4px;
 }

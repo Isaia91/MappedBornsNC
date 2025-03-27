@@ -102,3 +102,30 @@ fetch("https://data.gouv.nc/api/explore/v2.1/catalog/datasets/bornes-de-recharge
         }
     })
     .catch(error => console.error("Erreur :", error)); // Gère les erreurs de requête
+
+
+
+navigator.geolocation.getCurrentPosition(
+    (position) => {
+        let lat = position.coords.latitude;
+        let lon = position.coords.longitude;
+
+        console.log("Votre position :", lat, lon);
+
+        // Définir une icône personnalisée
+        let userIcon = L.icon({
+            iconUrl: './assets/img/location.png',
+            iconSize: [40, 40],
+            iconAnchor: [20, 40],
+            popupAnchor: [0, -40]
+        });
+
+        // Ajouter un marqueur à la position actuelle avec l'icône personnalisée
+        let userMarker = L.marker([lat, lon], { icon: userIcon }).addTo(mymap)
+            .bindPopup("Vous êtes ici")
+            .openPopup();
+    },
+    (error) => {
+        console.error("Erreur lors de la récupération de la position :", error);
+    }
+);

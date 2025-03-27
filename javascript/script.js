@@ -35,15 +35,10 @@ function setCase(str) {
 function showSidebar(nom, adresse) {
     let sidebar = document.getElementById('sideBar');
     sidebar.style.display = "block";
-    let h2 = sidebar.getElementsByTagName('h2')[0];
+    let h3 = sidebar.getElementsByTagName('h3')[0];
     let p = sidebar.getElementsByTagName('p')[0];
-    h2.innerHTML = nom;
+    h3.innerHTML = nom;
     p.innerHTML = adresse;
-}
-
-// Masque la barre latérale
-function hideSidebar() {
-    document.getElementById("sideBar").style.display = "none";
 }
 
 let markersPoint = []; // Tableau stockant tous les marqueurs
@@ -64,6 +59,7 @@ function filterMarkers() {
     });
 }
 
+let markersLayer = L.layerGroup();
 // Effectuer une requête pour récupérer les bornes de recharge
 fetch("https://data.gouv.nc/api/explore/v2.1/catalog/datasets/bornes-de-recharge-pour-vehicules-electriques/records?limit=45")
     .then(response => response.json()) // Convertir la réponse en JSON
@@ -129,3 +125,14 @@ navigator.geolocation.getCurrentPosition(
         console.error("Erreur lors de la récupération de la position :", error);
     }
 );
+
+function clearSidebar() {
+    const sideBar = document.getElementById("sideBar");
+
+    // Vider les éléments h2 et p uniquement
+    const h3 = sideBar.querySelector("h3");
+    const p = sideBar.querySelector("p");
+
+    if (h3) h3.textContent = "";
+    if (p) p.textContent = "";
+}

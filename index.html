@@ -21,21 +21,34 @@
 <body>
 
 <h1 id="title">Bornes mapés en NC</h1>
-
-<div id="sideBar">
-    <h2></h2>
-    <p></p>
-    <button id="closeButton" onclick="hideSidebar()">Close</button>
-</div>
-
 <div id="search">
     <input type="text" id="searchBar" placeholder="Rechercher une borne..." onkeyup="filterMarkers()">
 </div>
-<div id="map"></div>
+<div id="mainContainer">
+    <div id="sideBar">
+        <h2>Informations sur la borne</h2>
+        <h3></h3>
+        <p></p>
+        <button id="closeButton" onclick="clearSidebar()">Vider</button>
+    </div>
+
+    <div id="map"></div>
+
+    <div id="info">
+        <h2>Info</h2>
+        <p>
+            Ce site interactif permet de visualiser sur une carte les bornes de recharge pour véhicules électriques en Nouvelle-Calédonie. Grâce à l'intégration de Leaflet et des données ouvertes de data.gouv.nc
+        </p>
+    </div>
+</div>
+
+
 
 
 
 <script src="./javascript/script.js"></script>
+<script src="https://unpkg.com/@geonet/leaflet-knn"></script>
+
 
 
 </body>
